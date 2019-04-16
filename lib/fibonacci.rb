@@ -5,8 +5,21 @@
 # ....
 # e.g. 6th fibonacci number is 8
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the the number of values in the array
+# Space complexity: O(n), where n is the number of values in the array
 def fibonacci(n)
-  raise NotImplementedError
+  if n == nil || n < 0
+    raise ArgumentError, "Invalid input for n, #{n}"
+  elsif n == 0 || n == 1
+    return n
+  else
+    array = [0, 1]
+
+    (n-2).times do
+      num = array[-1] + array[-2]
+      array << num
+    end
+
+    return array[n]
+  end
 end
